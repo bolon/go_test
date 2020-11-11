@@ -16,14 +16,3 @@ func sum(a int, b int) bool {
 func main() {
 	fmt.Printf("Sum %v", sum(2, 3))
 }
-
-func nonCondi(input int) int {
-	switch input {
-	case 0:
-		return 00
-	case 1:
-		return 11
-	default:
-		return input
-	}
-}
