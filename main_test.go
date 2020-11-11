@@ -17,9 +17,9 @@ func TestSum(t *testing.T) {
 }
 
 
-func TestMain(t *testing.T) {
-  main()
-}
+// func TestMain(t *testing.T) {
+//   main()
+// }
 
 // func TestNonCondi(t *testing.T) {
 //   var expected = 00
