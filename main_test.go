@@ -9,9 +9,9 @@ func TestSum(t *testing.T) {
 		t.Errorf("%v == %v\n", expected, actual)
 	}
   
-  expected = false
-  actual = sum(6, 10)
-  if expected != actual {
-    t.Errorf("%v == %v\n", expected, actual)
-  }
+  // expected = false
+  // actual = sum(6, 10)
+  // if expected != actual {
+  //   t.Errorf("%v == %v\n", expected, actual)
+  // }
 }
