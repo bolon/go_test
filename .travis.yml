@@ -14,4 +14,5 @@ script:
   
 after_success:
   - gocov convert coverage.txt | gocov-xml > coverage.xml
+  - ls -al
   - bash <(curl -s https://codecov.io/bash) -f coverage.xml
