@@ -6,9 +6,12 @@ go:
   
 before_install:
   - go get -t -v ./...
+  - go get github.com/axw/gocov/gocov
+  - go get github.com/AlekSi/gocov-xml
 
 script:
   - go test -race -coverprofile=coverage.txt -covermode=atomic
   
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - gocov convert coverage.txt | gocov-xml > coverage.xml
+  - bash <(curl -s https://codecov.io/bash) -f coverage.xml
