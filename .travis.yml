@@ -8,11 +8,15 @@ before_install:
   - go get -t -v ./...
   - go get github.com/axw/gocov/gocov
   - go get github.com/AlekSi/gocov-xml
+  - go get github.com/corsc/go-tools/package-coverage
 
 script:
-  - go test -race -coverprofile=coverage.txt -covermode=atomic
+  - package-coverage -c -p -a=0 -q=false ./
+  # - go test -race -coverprofile=coverage.txt -covermode=atomic
   
 after_success:
-  - gocov convert coverage.txt | gocov-xml > coverage.xml
+  - find . -name "profile.cov" -type f | xargs sed -i .tmp '/fake_code/d'
+  - gocov convert profile.cov | gocov-xml > coverage.xml
   - ls -al
+  - cat profile.cov
   - bash <(curl -s https://codecov.io/bash) -f coverage.xml
