@@ -18,5 +18,6 @@ after_success:
   - find . -name "profile.cov" -type f | xargs sed -i -e "/fake_code/d"
   - gocov convert profile.cov | gocov-xml > coverage.xml
   - ls -al
+  - ls -al pkg2/
   - cat profile.cov
   - bash <(curl -s https://codecov.io/bash) -f coverage.xml
