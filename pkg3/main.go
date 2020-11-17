@@ -1,12 +1,9 @@
-package gotest
+package pkg3
 
 import "fmt"
 
 func sum(a int, b int) bool {
 	if a + b > 10 {
-		return false
-	}
-	if a - b < 0 {
 		return false
 	}
 	
