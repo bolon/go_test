@@ -16,7 +16,7 @@ script:
   
 after_success:
   - find ./* -name "profile.cov" -type f | xargs sed -i -e "/fake_code/d"
-  - gocov convert profile.cov | gocov-xml > coverage.xml
+  - find ./* -name "profile.cov" -type f -exec sh -c 'gocov convert {} | gocov-xml > {}.xml' \;
   - ls -al
   - ls -al pkg2/
   - cat profile.cov
