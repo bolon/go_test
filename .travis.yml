@@ -11,7 +11,7 @@ before_install:
   - go get github.com/corsc/go-tools/package-coverage
 
 script:
-  - package-coverage -c -q=false ./
+  - package-coverage -c ./
   # - go test -race -coverprofile=coverage.txt -covermode=atomic
   
 after_success:
