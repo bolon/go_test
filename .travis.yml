@@ -20,5 +20,4 @@ after_success:
   - ls -al
   - ls -al pkg2/
   - cat profile.cov
-  - curl -s "https://codecov.gitlab.myteksi.net/bash" | \
-    bash -s - -f "*.cov.xml"
+  - bash <(curl -s https://codecov.io/bash) -v -f "*.cov.xml"
