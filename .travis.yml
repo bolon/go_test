@@ -15,7 +15,7 @@ script:
   # - go test -race -coverprofile=coverage.txt -covermode=atomic
   
 after_success:
-  - find . -name "profile.cov" -type f | xargs sed -i -e "/fake_code/d"
+  - find ./* -name "profile.cov" -type f | xargs sed -i -e "/fake_code/d"
   - gocov convert profile.cov | gocov-xml > coverage.xml
   - ls -al
   - ls -al pkg2/
