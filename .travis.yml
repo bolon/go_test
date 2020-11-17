@@ -20,4 +20,4 @@ after_success:
   - ls -al
   - ls -al pkg2/
   - cat profile.cov
-  - bash <(curl -s https://codecov.io/bash) -f coverage.xml
+  - bash <(curl -s https://codecov.io/bash) -f profile.cov.xml
