@@ -15,3 +15,7 @@ func TestSum(t *testing.T) {
   //   t.Errorf("%v == %v\n", expected, actual)
   // }
 }
+
+func TestNested(t *testing.T) {
+	nestedFunc(true)
+}
