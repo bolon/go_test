@@ -11,8 +11,13 @@ before_install:
   - go get github.com/corsc/go-tools/package-coverage
 
 script:
-  - go test -race -coverprofile=coverage.txt -covermode=atomic
+  - package-coverage -c -a=0 ./
+  # - go test -race -coverprofile=coverage.txt -covermode=atomic
   
 after_success:
+  - find ./* -name "profile.cov" -type f | xargs sed -i -e "/fake_code/d"
+  - find ./* -name "profile.cov" -type f -exec sh -c 'gocov convert {} | gocov-xml > {}.xml' \;
   - ls -al
-  - bash <(curl -s https://codecov.io/bash)
+  - ls -al pkg2/
+  - cat profile.cov
+  - bash <(curl -s https://codecov.io/bash) -f "*.cov.xml"
